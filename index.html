@@ -5,34 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rasoi</title>
   <meta name="description" content="Rasoi, una rivista nata per tagliare.">
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root,[data-theme="light"]{
-      --bg:#f2f2ee;--surface:#ffffff;--surface-2:#e9e9e2;--text:#0f0f0f;--muted:#555;--border:#111;--accent:#111;
-      --inv:#fff;--radius:0;--container:1280px;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
-      --text-sm:clamp(.875rem,.8rem + .25vw,1rem);--text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.25rem,1rem + .8vw,1.8rem);--text-xl:clamp(2rem,1.4rem + 2vw,3.4rem);--text-hero:clamp(4rem,1rem + 10vw,11rem);
-      --font-display:'Cabinet Grotesk', Arial, sans-serif;--font-body:'General Sans', Arial, sans-serif;
-    }
-    [data-theme="dark"]{
-      --bg:#000;--surface:#0a0a0a;--surface-2:#111;--text:#fff;--muted:#b5b5b5;--border:#fff;--accent:#fff;--inv:#000;
-    }
-    *,:before,:after{box-sizing:border-box;margin:0;padding:0} html{-webkit-text-size-adjust:none;text-size-adjust:none} body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-body);border:1px solid var(--border)}
-    a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-    .splash{min-height:100vh;display:grid;place-items:center;padding:var(--space-6)}
-    .splash-link{display:grid;gap:var(--space-4);text-align:center;border:1px solid var(--border);padding:min(6vw,4rem);width:min(100%,1000px);background:var(--surface)}
-    .logo-word{font-family:var(--font-display);font-size:var(--text-hero);font-weight:800;letter-spacing:-.06em;line-height:.9;text-transform:lowercase}
-    .tagline{font-size:var(--text-lg);text-transform:lowercase}
-    .hint{font-size:var(--text-sm);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    .splash-link:hover{background:var(--surface-2)}
-    @media (prefers-color-scheme: light){html:not([data-theme]){background:#f2f2ee}}
+    :root,[data-theme="light"]{--bg:#f3f1ec;--surface:#ffffff;--surface-2:#ece9e2;--text:#0a0a0a;--muted:#55534f;--border:#111;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--text-sm:clamp(.875rem,.84rem + .2vw,1rem);--text-base:clamp(1rem,.96rem + .2vw,1.125rem);--text-lg:clamp(1.25rem,1.05rem + .7vw,1.75rem);--text-hero:clamp(4rem,1.4rem + 9vw,10rem);--font-main:'Space Grotesk',Arial,sans-serif}
+    [data-theme="dark"]{--bg:#000;--surface:#080808;--surface-2:#111;--text:#fff;--muted:#b8b8b8;--border:#fff}
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0} html{-webkit-text-size-adjust:none;text-size-adjust:none} body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-main);border:1px solid var(--border)}
+    a{color:inherit;text-decoration:none}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:var(--space-6)}
+    .panel{width:min(100%,1100px);border:6px solid var(--border);padding:clamp(2rem,6vw,5rem);background:var(--bg);display:grid;gap:var(--space-4);text-align:center}
+    .title{font-size:var(--text-hero);font-style:italic;font-weight:700;line-height:.86;letter-spacing:-.08em;text-transform:lowercase}
+    .subtitle{font-size:var(--text-sm);font-weight:400}
+    .panel:hover{background:var(--surface)}
   </style>
 </head>
 <body>
-  <main class="splash">
-    <a class="splash-link" href="home.html" aria-label="Entra nella homepage di Rasoi">
-      <div class="logo-word">rasoi</div>
-      <p class="tagline">una rivista nata per tagliare</p>
-      <p class="hint">entra</p>
+  <main class="wrap">
+    <a class="panel" href="home.html" aria-label="Apri Rasoi">
+      <div class="title">rasoi</div>
+      <p class="subtitle">una rivista nata per tagliare</p>
     </a>
   </main>
 </body>

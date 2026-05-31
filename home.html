@@ -4,34 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rasoi — Home</title>
-  <meta name="description" content="Rasoi, rivista critica.">
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+  <meta name="description" content="Rasoi, una rivista nata per tagliare.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root,[data-theme="light"]{--bg:#f2f2ee;--surface:#fff;--surface-2:#e9e9e2;--text:#0f0f0f;--muted:#555;--border:#111;--accent:#111;--inv:#fff;--radius:0;--container:1320px;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--text-xs:clamp(.75rem,.72rem + .2vw,.875rem);--text-sm:clamp(.875rem,.8rem + .25vw,1rem);--text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.25rem,1rem + .8vw,1.8rem);--text-xl:clamp(2rem,1.4rem + 2vw,3.4rem);--text-hero:clamp(4rem,1rem + 10vw,11rem);--font-display:'Cabinet Grotesk', Arial, sans-serif;--font-body:'General Sans', Arial, sans-serif}
-    [data-theme="dark"]{--bg:#000;--surface:#0a0a0a;--surface-2:#111;--text:#fff;--muted:#b5b5b5;--border:#fff;--accent:#fff;--inv:#000}
-    *,:before,:after{box-sizing:border-box;margin:0;padding:0} html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth} body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-body);border:1px solid var(--border)}
-    a{color:inherit;text-decoration:none} button,input{font:inherit;color:inherit;background:none;border:none} button{cursor:pointer} img,svg{display:block;max-width:100%}
-    .container{width:min(calc(100% - 2rem),var(--container));margin:auto}.eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    :root,[data-theme="light"]{--bg:#f3f1ec;--surface:#fff;--surface-2:#ece9e2;--text:#0a0a0a;--muted:#55534f;--border:#111;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--text-xs:clamp(.75rem,.73rem + .15vw,.875rem);--text-sm:clamp(.875rem,.84rem + .2vw,1rem);--text-base:clamp(1rem,.96rem + .2vw,1.125rem);--text-lg:clamp(1.25rem,1.05rem + .7vw,1.75rem);--text-xl:clamp(2rem,1.4rem + 2vw,3.1rem);--text-hero:clamp(4rem,1.4rem + 9vw,9.5rem);--font-main:'Space Grotesk',Arial,sans-serif;--container:1320px}
+    [data-theme="dark"]{--bg:#000;--surface:#080808;--surface-2:#111;--text:#fff;--muted:#b8b8b8;--border:#fff}
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0} html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth} body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-main);border:1px solid var(--border)}
+    a{color:inherit;text-decoration:none} button,input{font:inherit;color:inherit;background:none;border:none} button{cursor:pointer}
+    .container{width:min(calc(100% - 2rem),var(--container));margin:auto}.eyebrow{font-size:var(--text-xs);text-transform:lowercase;color:var(--muted)}
     .site-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border)} .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:var(--space-4) 0}
-    .brand{font-family:var(--font-display);font-weight:800;font-size:var(--text-lg);letter-spacing:-.05em;text-transform:lowercase}.top-actions{display:flex;gap:var(--space-2);align-items:center}
-    .icon-btn{width:48px;height:48px;display:grid;place-items:center;border:1px solid var(--border);border-radius:0;background:var(--surface)} .icon-btn:hover{background:var(--surface-2)}
-    .drawer{position:fixed;top:0;right:0;width:min(480px,100%);height:100vh;background:var(--bg);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .2s linear;z-index:50;padding:var(--space-4)}
-    .drawer.open{transform:translateX(0)} .drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-8)} .drawer nav{display:grid;gap:1px;background:var(--border)} .drawer nav a{background:var(--bg);padding:var(--space-5);font-family:var(--font-display);font-size:var(--text-lg);text-transform:lowercase} .drawer nav a:hover{background:var(--surface)}
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .2s linear;z-index:40}.overlay.show{opacity:1;pointer-events:auto}
-    .hero{padding:var(--space-16) 0 var(--space-12)} .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:1px;background:var(--border);border:1px solid var(--border)} .hero-block,.hero-side{background:var(--bg)} .hero-block{padding:var(--space-8)} .hero-side{display:grid;grid-template-rows:1fr 1fr}
-    h1{font-family:var(--font-display);font-weight:800;font-size:var(--text-hero);letter-spacing:-.08em;line-height:.82;text-transform:lowercase;max-width:8ch} .subtitle{margin-top:var(--space-5);font-size:var(--text-lg);max-width:24ch}
-    .hero-card{padding:var(--space-6);border-left:1px solid var(--border);border-top:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;min-height:220px}
-    .hero-card:first-child{border-top:none} .hero-card strong{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;text-transform:lowercase}
-    section{padding:var(--space-8) 0} .section-head{display:flex;justify-content:space-between;gap:var(--space-4);align-items:end;border-bottom:1px solid var(--border);padding-bottom:var(--space-3);margin-bottom:var(--space-6)} .section-head h2{font-family:var(--font-display);font-size:var(--text-xl);text-transform:lowercase;letter-spacing:-.05em}
-    .grid-articles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)} .card{background:var(--bg);padding:var(--space-5);display:grid;gap:var(--space-4);min-height:340px} .card:hover{background:var(--surface)}
-    .thumb{aspect-ratio:4/3;border:1px solid var(--border);background:linear-gradient(135deg,var(--surface),var(--surface-2));position:relative}.thumb:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(255,255,255,.08) 30px 31px);mix-blend-mode:overlay}
-    .card h3{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;line-height:1;text-transform:lowercase}.card p{color:var(--muted);font-size:var(--text-sm)}
-    .bands{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)} .bands > div{background:var(--bg);padding:var(--space-6)}
-    .bands blockquote{font-family:var(--font-display);font-size:var(--text-xl);line-height:.98;letter-spacing:-.04em;text-transform:lowercase;max-width:13ch}
-    .archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)} .archive-item{background:var(--bg);padding:var(--space-5);min-height:180px;display:grid;align-content:space-between}.archive-item:hover{background:var(--surface)}
-    .footer{padding:var(--space-8) 0 var(--space-12);border-top:1px solid var(--border);margin-top:var(--space-8)} .footer p{color:var(--muted);font-size:var(--text-sm)}
-    @media (max-width: 1000px){.hero-grid,.bands{grid-template-columns:1fr}.hero-side{grid-template-rows:none;grid-template-columns:1fr 1fr}.grid-articles{grid-template-columns:1fr 1fr}.archive-grid{grid-template-columns:1fr 1fr}}
-    @media (max-width: 700px){.container{width:min(calc(100% - 1rem),var(--container))}.hero{padding-top:var(--space-10)}.hero-block{padding:var(--space-5)}.hero-side{grid-template-columns:1fr}.hero-card{border-left:none;border-top:1px solid var(--border)}.grid-articles,.archive-grid{grid-template-columns:1fr}.section-head{flex-direction:column;align-items:flex-start}}
+    .brand{font-size:var(--text-lg);font-weight:700;letter-spacing:-.06em;text-transform:lowercase;font-style:italic}.top-actions{display:flex;gap:1px;background:var(--border)}
+    .icon-btn{width:52px;height:52px;display:grid;place-items:center;background:var(--bg)} .icon-btn:hover{background:var(--surface)}
+    .drawer{position:fixed;top:0;right:0;width:min(460px,100%);height:100vh;background:var(--bg);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .18s linear;z-index:50;padding:var(--space-4)}
+    .drawer.open{transform:translateX(0)} .drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-8)} .drawer nav{display:grid;gap:1px;background:var(--border)} .drawer nav a{background:var(--bg);padding:var(--space-5);font-size:var(--text-lg);font-weight:700;text-transform:lowercase} .drawer nav a:hover{background:var(--surface)}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .18s linear;z-index:40}.overlay.show{opacity:1;pointer-events:auto}
+    .hero{padding:var(--space-12) 0 var(--space-8)} .hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)} .hero-main,.hero-stack{background:var(--bg)} .hero-main{padding:var(--space-8)} .hero-stack{display:grid;grid-template-rows:1fr 1fr}
+    h1{font-size:var(--text-hero);font-style:italic;font-weight:700;line-height:.84;letter-spacing:-.08em;text-transform:lowercase;max-width:8ch} .subtitle{margin-top:var(--space-4);font-size:var(--text-lg);max-width:26ch}
+    .hero-card{padding:var(--space-6);border-left:1px solid var(--border);border-top:1px solid var(--border);display:grid;align-content:space-between;gap:var(--space-6);min-height:250px}.hero-card:first-child{border-top:none}.hero-card strong{font-size:var(--text-lg);font-weight:700;text-transform:lowercase;line-height:1.05}.hero-card p{color:var(--muted)}
+    section{padding:var(--space-8) 0}.section-head{display:flex;justify-content:space-between;gap:var(--space-4);align-items:end;border-bottom:1px solid var(--border);padding-bottom:var(--space-3);margin-bottom:var(--space-5)} .section-head h2{font-size:var(--text-xl);font-weight:700;letter-spacing:-.06em;text-transform:lowercase}
+    .grid-articles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)} .card{background:var(--bg);padding:var(--space-5);display:grid;gap:var(--space-4);min-height:320px;align-content:start} .card:hover{background:var(--surface)}
+    .thumb{aspect-ratio:4/3;border:1px solid var(--border);background:linear-gradient(180deg,var(--surface),var(--surface-2))}.card h3{font-size:var(--text-lg);font-weight:700;line-height:1.05;text-transform:lowercase}.card p{font-size:var(--text-sm);color:var(--muted)}
+    .statement{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)} .statement > div{background:var(--bg);padding:var(--space-6)} .statement p{max-width:48ch}.statement .big{font-size:var(--text-xl);font-weight:700;line-height:1.02;letter-spacing:-.05em;text-transform:lowercase}
+    .archive-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)} .archive-item{background:var(--bg);padding:var(--space-5);min-height:220px;display:grid;align-content:space-between;gap:var(--space-6)} .archive-item:hover{background:var(--surface)} .archive-item strong{font-size:var(--text-lg);font-weight:700;line-height:1.05;text-transform:lowercase}.archive-item p{font-size:var(--text-sm);color:var(--muted)}
+    .footer{padding:var(--space-8) 0 var(--space-10);border-top:1px solid var(--border);margin-top:var(--space-8)} .footer p{font-size:var(--text-sm);color:var(--muted)}
+    @media (max-width: 1100px){.grid-articles,.archive-grid{grid-template-columns:1fr 1fr}.hero-grid,.statement{grid-template-columns:1fr}.hero-stack{grid-template-rows:none;grid-template-columns:1fr 1fr}}
+    @media (max-width: 700px){.container{width:min(calc(100% - 1rem),var(--container))}.hero-main{padding:var(--space-5)}.hero-stack{grid-template-columns:1fr}.hero-card{border-left:none;border-top:1px solid var(--border)}.grid-articles,.archive-grid{grid-template-columns:1fr}.section-head{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
@@ -68,21 +67,20 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-block">
-          <div class="eyebrow">rivista critica · architettura · teoria · immagini</div>
+        <div class="hero-main">
           <h1>rasoi</h1>
           <p class="subtitle">una rivista nata per tagliare</p>
         </div>
-        <div class="hero-side">
+        <div class="hero-stack">
           <div class="hero-card">
             <div class="eyebrow">ultimo focus</div>
             <strong>forme dure del discorso critico</strong>
             <p>testi, immagini e inchieste che incidono nello spazio contemporaneo.</p>
           </div>
           <div class="hero-card">
-            <div class="eyebrow">struttura</div>
-            <strong>manifesto, about, articoli, archivio</strong>
-            <p>navigazione netta, pagine separate, interfaccia rigida a contrasto alto.</p>
+            <div class="eyebrow">manifesto breve</div>
+            <strong>non ci interessa ciò che vuoi dire, ma speriamo interessi a te.</strong>
+            <p>una rivista per prendere posizione, non per arredarla.</p>
           </div>
         </div>
       </div>
@@ -91,43 +89,43 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <div>
-            <div class="eyebrow">home</div>
-            <h2>articoli recenti</h2>
-          </div>
-          <p>impianto editoriale asciutto, vicino alla logica magazine di un Projects.[web:18][web:21]</p>
+          <div><h2>articoli recenti</h2></div>
         </div>
         <div class="grid-articles">
           <a class="card" href="articolo-01.html">
             <div class="thumb" aria-hidden="true"></div>
-            <div class="eyebrow">saggio</div>
+            <div class="eyebrow">teoria</div>
             <h3>la soglia come macchina di selezione</h3>
             <p>un testo di prova da sostituire con il primo articolo reale.</p>
           </a>
           <a class="card" href="articolo-02.html">
             <div class="thumb" aria-hidden="true"></div>
-            <div class="eyebrow">note</div>
+            <div class="eyebrow">critica</div>
             <h3>contro la neutralità della pianta</h3>
             <p>una struttura editoriale pensata per inserire facilmente nuovi contributi.</p>
           </a>
           <a class="card" href="articolo-03.html">
             <div class="thumb" aria-hidden="true"></div>
-            <div class="eyebrow">inchiesta</div>
+            <div class="eyebrow">lamentela</div>
             <h3>materiali, attriti, dispositivi</h3>
             <p>layout rigido, contorni vivi, fondo nero e testo bianco come impostazione base.</p>
+          </a>
+          <a class="card" href="articolo-04.html">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="eyebrow">storia</div>
+            <h3>passeggiate dentro i margini del progetto</h3>
+            <p>un quarto articolo di prova per stabilizzare la griglia iniziale.</p>
           </a>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="container bands">
+      <div class="container statement">
         <div>
-          <div class="eyebrow">taglio</div>
-          <blockquote>rasoi lavora per separare, incidere, togliere rumore.</blockquote>
+          <p class="big">rasoi lavora per separare, incidere, togliere rumore.</p>
         </div>
         <div>
-          <div class="eyebrow">navigazione</div>
           <p>dal menu sandwich puoi entrare nelle quattro sezioni principali, ciascuna come pagina autonoma.</p>
         </div>
       </div>
@@ -138,24 +136,22 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">archivio rapido</div>
-            <h2>fascicoli</h2>
+            <h2>articoli</h2>
           </div>
           <a href="archivio.html">vai all'archivio completo</a>
         </div>
         <div class="archive-grid">
-          <a class="archive-item" href="articolo-01.html"><span class="eyebrow">01</span><strong>forme del taglio</strong><p>editoriale di apertura</p></a>
-          <a class="archive-item" href="articolo-02.html"><span class="eyebrow">02</span><strong>sezioni ostili</strong><p>note sul disegno</p></a>
-          <a class="archive-item" href="articolo-03.html"><span class="eyebrow">03</span><strong>corpi e rigidità</strong><p>inchiesta visiva</p></a>
-          <a class="archive-item" href="articoli.html"><span class="eyebrow">04</span><strong>tutti gli articoli</strong><p>indice completo</p></a>
+          <a class="archive-item" href="articolo-01.html"><div class="eyebrow">teoria</div><strong>forme del taglio</strong><p>articolo di prova.</p></a>
+          <a class="archive-item" href="articolo-02.html"><div class="eyebrow">critica</div><strong>sezioni ostili</strong><p>articolo di prova.</p></a>
+          <a class="archive-item" href="articolo-03.html"><div class="eyebrow">viaggio</div><strong>corpi e rigidità</strong><p>articolo di prova.</p></a>
+          <a class="archive-item" href="articolo-04.html"><div class="eyebrow">disegno</div><strong>linee di fuga e ritorni</strong><p>articolo di prova.</p></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p>rasoi — una rivista nata per tagliare.</p>
-    </div>
+    <div class="container"><p>rasoi — una rivista nata per tagliare.</p></div>
   </footer>
 
   <script>
@@ -165,7 +161,7 @@
       let theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
       function applyTheme(t){theme=t;root.setAttribute('data-theme',t)} applyTheme(theme);
       themeBtn.addEventListener('click',()=>applyTheme(theme==='dark'?'light':'dark'));
-      function openMenu(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false')} 
+      function openMenu(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false')}
       function closeMenu(){drawer.classList.remove('open');overlay.classList.remove('show');drawer.setAttribute('aria-hidden','true')}
       openBtn.addEventListener('click',openMenu); closeBtn.addEventListener('click',closeMenu); overlay.addEventListener('click',closeMenu);
     })();
