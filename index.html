@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rasoi</title>
-  <meta name="description" content="Rasoi, una rivista nata per tagliare.">
+  <title>rasoi</title>
+  <meta name="description" content="rasoi, una rivista nata per tagliare.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
@@ -13,19 +13,23 @@
     [data-theme="dark"]{--bg:#000;--surface:#080808;--surface-2:#111;--text:#fff;--muted:#b8b8b8;--border:#fff}
     *,:before,:after{box-sizing:border-box;margin:0;padding:0} html{-webkit-text-size-adjust:none;text-size-adjust:none} body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-main);border:1px solid var(--border)}
     a{color:inherit;text-decoration:none}
-    .wrap{min-height:100vh;display:grid;place-items:center;padding:var(--space-6)}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:var(--space-6);position:relative}
     .panel{width:min(100%,1100px);border:6px solid var(--border);padding:clamp(2rem,6vw,5rem);background:var(--bg);display:grid;gap:var(--space-4);text-align:center}
-    .title{font-size:var(--text-hero);font-style:italic;font-weight:700;line-height:.86;letter-spacing:0.02em;text-transform:lowercase}
-    .subtitle{font-size:var(--text-sm);font-weight:400}
-    .panel:hover{background:var(--surface)}
+    .title{display:inline-block;font-size:var(--text-hero);font-style:italic;font-weight:700;line-height:.86;letter-spacing:0em;text-transform:lowercase;position:relative}
+    .title .text-main{display:inline-block}
+    .title .text-alt{display:none}
+    .title .text-alt svg{max-width:16rem;height:auto;display:block;margin:0 auto;}
+    .panel:hover .title .text-main{display:none}
+    .panel:hover .title .text-alt{display:inline-flex;justify-content:center;align-items:center}
+    .credit{position:absolute;right:var(--space-6);bottom:var(--space-6);font-size:var(--text-sm);color:#fff;text-transform:lowercase}
   </style>
 </head>
 <body>
   <main class="wrap">
-    <a class="panel" href="home.html" aria-label="Apri Rasoi">
-      <div class="title">rasoi</div>
-      <p class="subtitle">una rivista nata per tagliare</p>
+    <a class="panel" href="home.html" aria-label="Apri rasoi">
+      <div class="title"><span class="text-main">rasoi</span><span class="text-alt"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="180" fill="none"/><path d="M18 98c16-8 88-34 118-32 54 3 85 18 98 34 13 16 16 42 2 54-14 12-44 10-64-6-20-16-16-34-4-44 12-10 36-10 54-6 18 4 34 12 40 16 6 4 6 8 0 14-6 6-24 12-40 10-16-2-22-8-26-14-4-6-4-8 2-10 6-2 18 0 30 2 12 2 24 8 30 14 6 6 8 16 4 24-4 8-18 14-32 14-14 0-24-4-34-10-10-6-18-12-24-14-6-2-16 0-26 4-10 4-20 10-26 16-6 6-12 16-14 22-2 6-2 14 0 18 2 4 0 6-4 6-4 0-10-2-18-8-8-6-12-10-12-14 0-4 2-8 10-10 8-2 20-2 30 0 10 2 18 6 22 10 4 4 4 6-2 8-6 2-16 2-28 0-12-2-24-8-34-16-10-8-18-18-20-26-2-8-2-18 0-24 2-6 10-12 18-16z" fill="#fff" stroke="#000" stroke-width="8" stroke-linejoin="round"/></svg></span></div>
     </a>
+    <div class="credit">rivista curata da nessuno</div>
   </main>
 </body>
 </html>

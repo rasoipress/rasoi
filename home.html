@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rasoi — Home</title>
-  <meta name="description" content="Rasoi, una rivista nata per tagliare.">
+  <title>rasoi — home</title>
+  <meta name="description" content="rasoi, una rivista nata per tagliare.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
@@ -15,15 +15,19 @@
     a{color:inherit;text-decoration:none} button,input{font:inherit;color:inherit;background:none;border:none} button{cursor:pointer}
     .container{width:min(calc(100% - 2rem),var(--container));margin:auto}.eyebrow{font-size:var(--text-xs);text-transform:lowercase;color:var(--muted)}
     .site-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--border)} .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:var(--space-4) 0}
-    .brand{font-size:var(--text-lg);font-weight:700;letter-spacing:-.06em;text-transform:lowercase;font-style:italic}.top-actions{display:flex;gap:1px;background:var(--border)}
+    .brand{font-size:var(--text-lg);font-weight:700;letter-spacing:0em;text-transform:lowercase;font-style:italic}.top-actions{display:flex;gap:1px;background:var(--border)}
     .icon-btn{width:52px;height:52px;display:grid;place-items:center;background:var(--bg)} .icon-btn:hover{background:var(--surface)}
     .drawer{position:fixed;top:0;right:0;width:min(460px,100%);height:100vh;background:var(--bg);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .18s linear;z-index:50;padding:var(--space-4)}
     .drawer.open{transform:translateX(0)} .drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-8)} .drawer nav{display:grid;gap:1px;background:var(--border)} .drawer nav a{background:var(--bg);padding:var(--space-5);font-size:var(--text-lg);font-weight:700;text-transform:lowercase} .drawer nav a:hover{background:var(--surface)}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .18s linear;z-index:40}.overlay.show{opacity:1;pointer-events:auto}
-    .hero{padding:var(--space-12) 0 var(--space-8)} .hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)} .hero-main,.hero-stack{background:var(--bg)} .hero-main{padding:var(--space-8)} .hero-stack{display:grid;grid-template-rows:1fr 1fr}
-    h1{font-size:var(--text-hero);font-style:italic;font-weight:700;line-height:.84;letter-spacing:-.08em;text-transform:lowercase;max-width:8ch} .subtitle{margin-top:var(--space-4);font-size:var(--text-lg);max-width:26ch}
+    .hero{padding:var(--space-12) 0 var(--space-8)} .hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)} .hero-main,.hero-stack{background:var(--bg)} .hero-main{padding:var(--space-8);padding-left:clamp(3rem,10vw,6rem);position:relative} .hero-stack{display:grid;grid-template-rows:1fr 1fr}
+    h1{display:inline-block;font-size:var(--text-hero);font-style:italic;font-weight:700;line-height:1.2;letter-spacing:0em;text-transform:lowercase;color:var(--text);border-bottom:none;padding-bottom:0;position:relative;z-index:100;will-change:transform;overflow:visible;transform:translate(-0.75rem,-0.45rem);transition:color .2s ease}
+    h1::before,h1::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;color:var(--text);white-space:nowrap;opacity:0;transition:opacity .2s ease, transform 2s ease}
+    h1::before{clip-path:polygon(0 0,100% 0,100% 66.6%,0 20%);}
+    h1::after{clip-path:polygon(0 20%,100% 66.6%,100% 100%,0 100%);transform:translate(0,0);}
+    h1.cut{color:transparent;} h1.cut::before{opacity:1;} h1.cut::after{opacity:1;transform:translate(0.55rem,0.55rem);} .subtitle{margin-top:var(--space-4);margin-left:6ch;font-size:var(--text-lg);max-width:26ch}
     .hero-card{padding:var(--space-6);border-left:1px solid var(--border);border-top:1px solid var(--border);display:grid;align-content:space-between;gap:var(--space-6);min-height:250px}.hero-card:first-child{border-top:none}.hero-card strong{font-size:var(--text-lg);font-weight:700;text-transform:lowercase;line-height:1.05}.hero-card p{color:var(--muted)}
-    section{padding:var(--space-8) 0}.section-head{display:flex;justify-content:space-between;gap:var(--space-4);align-items:end;border-bottom:1px solid var(--border);padding-bottom:var(--space-3);margin-bottom:var(--space-5)} .section-head h2{font-size:var(--text-xl);font-weight:700;letter-spacing:-.06em;text-transform:lowercase}
+    section{padding:var(--space-8) 0}.section-head{display:flex;justify-content:space-between;gap:var(--space-4);align-items:end;border-bottom:1px solid var(--border);padding-bottom:var(--space-3);margin-bottom:var(--space-5)} .section-head h2{font-size:var(--text-xl);font-weight:700;letter-spacing:0em;text-transform:lowercase}
     .grid-articles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)} .card{background:var(--bg);padding:var(--space-5);display:grid;gap:var(--space-4);min-height:320px;align-content:start} .card:hover{background:var(--surface)}
     .thumb{aspect-ratio:4/3;border:1px solid var(--border);background:linear-gradient(180deg,var(--surface),var(--surface-2))}.card h3{font-size:var(--text-lg);font-weight:700;line-height:1.05;text-transform:lowercase}.card p{font-size:var(--text-sm);color:var(--muted)}
     .statement{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)} .statement > div{background:var(--bg);padding:var(--space-6)} .statement p{max-width:48ch}.statement .big{font-size:var(--text-xl);font-weight:700;line-height:1.02;letter-spacing:-.05em;text-transform:lowercase}
@@ -68,20 +72,19 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-main">
-          <h1>rasoi</h1>
-          <p class="subtitle">una rivista nata per tagliare</p>
+          <h1 data-text="rasoi">rasoi</h1>
         </div>
         <div class="hero-stack">
           <div class="hero-card">
+            <div class="eyebrow">manifesto breve</div>
+            <strong>non ci interessa ciò che vuoi</strong>
+            <p>ma speriamo interessi a te.<br>tutto ciò che ci verrà inviato sarà automaticamente pubblicato.</p>
+          </div>
+          <a class="hero-card" href="articolo-04.html" aria-label="Vai all'ultimo articolo pubblicato">
             <div class="eyebrow">ultimo focus</div>
             <strong>forme dure del discorso critico</strong>
             <p>testi, immagini e inchieste che incidono nello spazio contemporaneo.</p>
-          </div>
-          <div class="hero-card">
-            <div class="eyebrow">manifesto breve</div>
-            <strong>non ci interessa ciò che vuoi dire, ma speriamo interessi a te.</strong>
-            <p>una rivista per prendere posizione, non per arredarla.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -123,10 +126,10 @@
     <section>
       <div class="container statement">
         <div>
-          <p class="big">rasoi lavora per separare, incidere, togliere rumore.</p>
+          <p class="big"><em>rasoi</em> non lavora.<br>voi scrivete, noi facciamo rumore.</p>
         </div>
         <div>
-          <p>dal menu sandwich puoi entrare nelle quattro sezioni principali, ciascuna come pagina autonoma.</p>
+          <p>una «rivista» aperta a tutti, fatta in malafede, nata dal caso, senza successo.</p>
         </div>
       </div>
     </section>
@@ -151,7 +154,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container"><p>rasoi — una rivista nata per tagliare.</p></div>
+    <div class="container"><p><em>rasoi</em> — una rivista nata per tagliare.</p></div>
   </footer>
 
   <script>
@@ -164,6 +167,10 @@
       function openMenu(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false')}
       function closeMenu(){drawer.classList.remove('open');overlay.classList.remove('show');drawer.setAttribute('aria-hidden','true')}
       openBtn.addEventListener('click',openMenu); closeBtn.addEventListener('click',closeMenu); overlay.addEventListener('click',closeMenu);
+      const title = document.querySelector('.hero-main h1');
+      if(title){
+        requestAnimationFrame(()=> title.classList.add('cut'));
+      }
     })();
   </script>
 </body>
