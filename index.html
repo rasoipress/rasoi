@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rivista Critica</title>
+  <meta name="description" content="Rivista online su architettura, corpi, territorio e politica dello spazio.">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f4f0e8;
+      --color-surface: #f8f5ef;
+      --color-surface-2: #fffdf8;
+      --color-surface-offset: #e9e2d6;
+      --color-border: #cfc6b7;
+      --color-divider: #d7d0c5;
+      --color-text: #1f1a14;
+      --color-text-muted: #655d52;
+      --color-text-faint: #968d82;
+      --color-text-inverse: #faf7f2;
+      --color-primary: #7a1f1f;
+      --color-primary-hover: #5f1717;
+      --color-primary-highlight: #e8d3d0;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem;
+      --shadow-sm: 0 1px 2px rgba(31, 26, 20, 0.06);
+      --shadow-md: 0 8px 24px rgba(31, 26, 20, 0.08);
+      --font-display: 'Boska', Georgia, serif;
+      --font-body: 'General Sans', Arial, sans-serif;
+      --content-default: 1040px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #151311;
+      --color-surface: #1c1916;
+      --color-surface-2: #24211d;
+      --color-surface-offset: #2e2a25;
+      --color-border: #433d36;
+      --color-divider: #36312b;
+      --color-text: #ece5d8;
+      --color-text-muted: #b3a99b;
+      --color-text-faint: #7d7468;
+      --color-text-inverse: #171411;
+      --color-primary: #d27b6e;
+      --color-primary-hover: #e18b7d;
+      --color-primary-highlight: #4a2a26;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.28);
+    }
+
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth;scroll-padding-top:5rem}
+    body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg)}
+    img,svg{display:block;max-width:100%;height:auto}
+    a,button,input{transition:color var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive),transform var(--transition-interactive),box-shadow var(--transition-interactive)}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;border:none;background:none;color:inherit}
+    p{max-width:72ch;text-wrap:pretty}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.05;font-weight:500;text-wrap:balance}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link{position:absolute;left:var(--space-4);top:-40px;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-3);z-index:1000}
+    .skip-link:focus{top:var(--space-4)}
+    .container{width:min(calc(100% - 2rem), var(--content-default));margin-inline:auto}
+    .eyebrow{font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
+
+    header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider)}
+    .topbar{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-4);align-items:center;padding:var(--space-4) 0}
+    .logo{display:flex;align-items:center;gap:var(--space-3);font-weight:600}
+    .logo svg{width:40px;height:40px}
+    nav{display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap}
+    nav a{font-size:var(--text-sm);position:relative;padding-bottom:2px}
+    nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--color-primary);transform:scaleX(0);transform-origin:left;transition:transform var(--transition-interactive)}
+    nav a:hover::after, nav a:focus-visible::after{transform:scaleX(1)}
+    .theme-toggle{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--color-border);border-radius:999px;background:var(--color-surface)}
+
+    main section{padding-block:clamp(var(--space-10), 8vw, var(--space-24))}
+    .hero{padding-top:var(--space-12)}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:var(--space-8);align-items:end;border-bottom:1px solid var(--color-divider);padding-bottom:var(--space-8)}
+    .hero h1{font-size:var(--text-2xl);max-width:12ch;margin-block:var(--space-4) var(--space-6)}
+    .hero-copy p{color:var(--color-text-muted);font-size:var(--text-lg);max-width:34ch}
+    .hero-meta{display:grid;gap:var(--space-5);align-self:start}
+    .meta-card{padding:var(--space-5);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+    .meta-card strong{display:block;font-size:var(--text-sm);margin-bottom:var(--space-2)}
+    .meta-card p{font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .lead-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-8);align-items:start}
+    .feature-main{display:grid;gap:var(--space-4)}
+    .feature-main .image-block{aspect-ratio:16/10;background:linear-gradient(145deg, var(--color-primary-highlight), var(--color-surface-offset));border-radius:var(--radius-xl);border:1px solid var(--color-border);overflow:hidden;position:relative}
+    .feature-main .image-block::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg, transparent 0 48px, rgba(0,0,0,.045) 48px 49px)}
+    .feature-main .image-block::after{content:"";position:absolute;inset:12% auto auto 8%;width:42%;height:58%;border:1px solid color-mix(in srgb, var(--color-primary) 35%, var(--color-border));background:color-mix(in srgb, var(--color-surface-2) 82%, transparent);box-shadow:var(--shadow-md)}
+    .feature-main h2{font-size:var(--text-xl)}
+    .feature-main p{color:var(--color-text-muted)}
+    .issue-list{display:grid;gap:1px;background:var(--color-divider)}
+    .issue-item{background:var(--color-bg);padding:var(--space-5);display:grid;gap:var(--space-2)}
+    .issue-item:hover{background:var(--color-surface)}
+    .issue-item h3{font-size:var(--text-lg);font-family:var(--font-body);font-weight:600;line-height:1.2}
+    .issue-item p{font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .section-head{display:flex;justify-content:space-between;gap:var(--space-4);align-items:end;margin-bottom:var(--space-8);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
+    .section-head h2{font-size:var(--text-xl)}
+    .articles-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--space-6)}
+    .article-card{display:grid;gap:var(--space-4);align-content:start}
+    .article-figure{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(180deg, var(--color-surface-offset), var(--color-surface-2));border:1px solid var(--color-border);position:relative}
+    .article-figure::before,.article-figure::after{content:"";position:absolute;border-radius:999px;filter:blur(1px)}
+    .article-figure::before{width:56%;height:56%;background:color-mix(in srgb, var(--color-primary) 60%, transparent);top:10%;left:8%;opacity:.22}
+    .article-figure::after{width:70%;height:34%;background:color-mix(in srgb, var(--color-text) 22%, transparent);bottom:8%;right:10%;opacity:.12}
+    .article-card h3{font-size:var(--text-lg);font-family:var(--font-display)}
+    .article-card p{color:var(--color-text-muted);font-size:var(--text-sm)}
+    .article-card:hover .article-figure{transform:translateY(-2px)}
+
+    .manifesto{background:var(--color-surface);border-block:1px solid var(--color-divider)}
+    .manifesto-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--space-8)}
+    .manifesto blockquote{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.15;max-width:14ch}
+    .manifesto-text{display:grid;gap:var(--space-4)}
+    .manifesto-text p{color:var(--color-text-muted)}
+
+    .archive{display:grid;grid-template-columns:repeat(4, 1fr);gap:1px;background:var(--color-divider);border:1px solid var(--color-divider)}
+    .archive-item{background:var(--color-bg);padding:var(--space-5);min-height:170px;display:flex;flex-direction:column;justify-content:space-between}
+    .archive-item strong{font-size:var(--text-sm)}
+    .archive-item span{font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.08em}
+    .archive-item p{font-size:var(--text-sm);color:var(--color-text-muted)}
+
+    .newsletter{display:grid;grid-template-columns:1fr auto;gap:var(--space-4);padding:var(--space-8);background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-xl)}
+    .newsletter p{color:color-mix(in srgb, var(--color-text-inverse) 82%, transparent)}
+    .newsletter form{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+    .newsletter input{min-width:260px;padding:0 var(--space-4);height:48px;border-radius:999px;border:1px solid color-mix(in srgb, var(--color-text-inverse) 22%, transparent);background:rgba(255,255,255,.08);color:var(--color-text-inverse)}
+    .newsletter input::placeholder{color:rgba(255,255,255,.72)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--space-5);border-radius:999px;font-size:var(--text-sm);font-weight:600}
+    .btn-primary{background:var(--color-text);color:var(--color-text-inverse)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-secondary{border:1px solid var(--color-border);background:var(--color-surface)}
+    .btn-secondary:hover{background:var(--color-surface-offset)}
+
+    footer{padding:var(--space-10) 0 var(--space-16);border-top:1px solid var(--color-divider)}
+    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:var(--space-6);align-items:end}
+    .footer-grid p,.footer-grid a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .footer-links{display:flex;gap:var(--space-4);flex-wrap:wrap}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 600ms cubic-bezier(.22,1,.36,1),transform 600ms cubic-bezier(.22,1,.36,1)}
+    .reveal.is-visible{opacity:1;transform:translateY(0)}
+
+    @media (max-width: 980px){
+      .hero-grid,.lead-grid,.manifesto-grid,.newsletter,.footer-grid{grid-template-columns:1fr}
+      .articles-grid{grid-template-columns:1fr 1fr}
+      .archive{grid-template-columns:1fr 1fr}
+      .topbar{grid-template-columns:1fr auto;grid-template-areas:"logo toggle" "nav nav"}
+      .logo{grid-area:logo}.theme-toggle{grid-area:toggle}nav{grid-area:nav;justify-content:flex-start}
+    }
+
+    @media (max-width: 640px){
+      .container{width:min(calc(100% - 1.25rem), var(--content-default))}
+      .hero h1{max-width:10ch}
+      .articles-grid,.archive{grid-template-columns:1fr}
+      .newsletter input,.newsletter .btn{width:100%}
+      nav{gap:var(--space-3)}
+      .section-head{flex-direction:column;align-items:flex-start}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+  <header>
+    <div class="container topbar">
+      <a class="logo" href="#top" aria-label="Rivista Critica, torna in alto">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="8" y="8" width="48" height="48" rx="24" stroke="currentColor" stroke-width="2"></rect>
+          <path d="M20 41V23h14.5c5.6 0 9.5 3.2 9.5 8.3 0 5.7-4.2 9.7-10.8 9.7H20Z" stroke="currentColor" stroke-width="2"></path>
+          <path d="M30 23v18" stroke="currentColor" stroke-width="2"></path>
+        </svg>
+        <span>Rivista Critica</span>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <a href="#editoriale">Editoriale</a>
+        <a href="#articoli">Articoli</a>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#archivio">Archivio</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Attiva modalità scura">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <section class="hero" id="top">
+      <div class="container hero-grid reveal">
+        <div class="hero-copy">
+          <div class="eyebrow">Politiche dello spazio · Corpi · Territori</div>
+          <h1>Una rivista online per leggere l'architettura come conflitto, infrastruttura e immaginazione materiale.</h1>
+          <p>Testi, inchieste, conversazioni e dossier su spazio costruito, violenza amministrativa, ecologie estrattive e pratiche di contro-cartografia.</p>
+          <div style="display:flex; gap:var(--space-3); flex-wrap:wrap; margin-top:var(--space-6)">
+            <a class="btn btn-primary" href="#articoli">Leggi l'ultimo numero</a>
+            <a class="btn btn-secondary" href="#manifesto">Chi siamo</a>
+          </div>
+        </div>
+        <aside class="hero-meta" aria-label="Informazioni rivista">
+          <div class="meta-card">
+            <strong>Numero corrente</strong>
+            <p>Infrastrutture della soglia: frontiere, corridoi logistici, dispositivi di attesa.</p>
+          </div>
+          <div class="meta-card">
+            <strong>Formato</strong>
+            <p>Saggi lunghi, note critiche, portfolio visivi, trascrizioni e rubriche.</p>
+          </div>
+          <div class="meta-card">
+            <strong>Linea editoriale</strong>
+            <p>Una pratica di lettura dello spazio attenta a colonialità, istituzioni, tecnica e uso politico dei corpi.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="editoriale">
+      <div class="container lead-grid">
+        <article class="feature-main reveal">
+          <div class="image-block" aria-hidden="true"></div>
+          <div class="eyebrow">Editoriale</div>
+          <h2>La città non è uno sfondo: è una tecnologia di distribuzione differenziale dell'esposizione.</h2>
+          <p>Lo spazio non organizza soltanto i movimenti. Seleziona chi attraversa, chi aspetta, chi viene registrato, chi resta invisibile. In questa rivista, l'architettura viene trattata come una macchina materiale, giuridica e sensibile.</p>
+        </article>
+        <div class="issue-list reveal" aria-label="Testi in evidenza">
+          <a class="issue-item" href="#articoli">
+            <div class="eyebrow">Saggio</div>
+            <h3>Geografie dell'attrito logistico</h3>
+            <p>Porti secchi, zone franche e infrastrutture che amministrano la lentezza.</p>
+          </a>
+          <a class="issue-item" href="#articoli">
+            <div class="eyebrow">Conversazione</div>
+            <h3>Disegnare contro l'evidenza forense</h3>
+            <p>Cartografie, ricostruzioni e usi investigativi dell'immagine spaziale.</p>
+          </a>
+          <a class="issue-item" href="#articoli">
+            <div class="eyebrow">Portfolio</div>
+            <h3>Topografie dell'evacuazione</h3>
+            <p>Sequenze visive sul rapporto tra rovina, protocollo e occupazione del suolo.</p>
+          </a>
+          <a class="issue-item" href="#articoli">
+            <div class="eyebrow">Rubrica</div>
+            <h3>Lessico minimo della soglia</h3>
+            <p>Un glossario parziale per leggere checkpoint, vestiboli e camere d'attesa.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="articoli">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Ultimi contributi</div>
+            <h2>Saggi, note e immagini</h2>
+          </div>
+          <p>Una selezione di formati diversi, con un impianto visivo asciutto e una gerarchia leggibile.</p>
+        </div>
+        <div class="articles-grid">
+          <article class="article-card reveal">
+            <div class="article-figure" aria-hidden="true"></div>
+            <div class="eyebrow">Inchiesta</div>
+            <h3>Abitare la zona grigia tra emergenza e permanenza</h3>
+            <p>Il campo come dispositivo urbanistico e non come semplice eccezione umanitaria.</p>
+          </article>
+          <article class="article-card reveal">
+            <div class="article-figure" aria-hidden="true"></div>
+            <div class="eyebrow">Teoria</div>
+            <h3>L'estrazione come forma architettonica distribuita</h3>
+            <p>Miniere, data center, cave e piattaforme lette come ambienti concatenati.</p>
+          </article>
+          <article class="article-card reveal">
+            <div class="article-figure" aria-hidden="true"></div>
+            <div class="eyebrow">Intervista</div>
+            <h3>Contro la neutralità del rilievo</h3>
+            <p>Misurare significa anche decidere quali vite e quali danni entrano nel quadro.</p>
+          </article>
+          <article class="article-card reveal">
+            <div class="article-figure" aria-hidden="true"></div>
+            <div class="eyebrow">Dossier</div>
+            <h3>Il corridoio come figura politica</h3>
+            <p>Passaggi protetti, filtri mobili, segmentazioni temporanee e spazi di smistamento.</p>
+          </article>
+          <article class="article-card reveal">
+            <div class="article-figure" aria-hidden="true"></div>
+            <div class="eyebrow">Immagini</div>
+            <h3>Sezioni di paesaggi amministrati</h3>
+            <p>Un atlante visivo di recinzioni, argini, rilevati e margini sottoposti a protocollo.</p>
+          </article>
+          <article class="article-card reveal">
+            <div class="article-figure" aria-hidden="true"></div>
+            <div class="eyebrow">Note</div>
+            <h3>Postille sul lessico della protezione</h3>
+            <p>Quando la sicurezza diventa un criterio ordinario di distribuzione spaziale.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" id="manifesto">
+      <div class="container manifesto-grid reveal">
+        <blockquote>
+          Lo spazio non contiene la politica. La produce, la filtra, la intensifica.
+        </blockquote>
+        <div class="manifesto-text">
+          <div class="eyebrow">Manifesto</div>
+          <p>La rivista assume l'architettura come insieme di tecniche di selezione, esposizione e organizzazione della vita materiale. Per questo unisce analisi teorica, scrittura situata, immagini e documenti.</p>
+          <p>La struttura del sito evita la retorica da startup e adotta invece un linguaggio da magazine: ritmo tipografico, gabbie irregolari, superfici sobrie, colori controllati, centralità del testo.</p>
+          <p>Il progetto è pensato come base estendibile: puoi aggiungere numeri, autori, rubriche, pagine-saggio e un archivio editoriale più ampio senza rifare il design.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="archivio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Archivio</div>
+            <h2>Numeri precedenti</h2>
+          </div>
+          <p>Ogni fascicolo può diventare una categoria o una pagina dedicata con lo stesso impianto visivo.</p>
+        </div>
+        <div class="archive">
+          <article class="archive-item reveal"><span>Numero 08</span><strong>Climi di eccezione</strong><p>Ecologia politica, tecniche di contenimento, meteorologie governate.</p></article>
+          <article class="archive-item reveal"><span>Numero 07</span><strong>Mappe ostili</strong><p>Confini mobili, mappature operative, immagini come prova.</p></article>
+          <article class="archive-item reveal"><span>Numero 06</span><strong>Corpi in attesa</strong><p>Soglie, code, dormitori, sale d'identificazione e stanze neutre.</p></article>
+          <article class="archive-item reveal"><span>Numero 05</span><strong>Suoli estratti</strong><p>Piattaforme, bacini, cave e processi di saturazione territoriale.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container reveal">
+        <div class="newsletter">
+          <div>
+            <div class="eyebrow" style="color:rgba(255,255,255,.76)">Newsletter</div>
+            <h2 style="font-size:var(--text-xl); max-width:14ch">Ricevi dossier, nuovi saggi e aperture di call editoriali.</h2>
+            <p>Modulo dimostrativo già integrato nel layout. In una seconda fase si può collegare a un servizio reale.</p>
+          </div>
+          <form>
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" type="email" placeholder="Indirizzo email" aria-label="Indirizzo email">
+            <button class="btn btn-primary" type="submit">Iscriviti</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <p>Rivista Critica è un prototipo editoriale per architettura, teoria e politica dello spazio.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#top">Inizio</a>
+        <a href="#articoli">Articoli</a>
+        <a href="#archivio">Archivio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const iconMoon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      const iconSun = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
+      function applyTheme(next){
+        theme = next;
+        root.setAttribute('data-theme', theme);
+        toggle.innerHTML = theme === 'dark' ? iconSun : iconMoon;
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Attiva modalità chiara' : 'Attiva modalità scura');
+      }
+      applyTheme(theme);
+      toggle.addEventListener('click', () => applyTheme(theme === 'dark' ? 'light' : 'dark'));
+
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry => {
+          if(entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, {threshold: 0.12});
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      document.querySelector('.newsletter form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const button = e.currentTarget.querySelector('button');
+        const input = e.currentTarget.querySelector('input');
+        button.textContent = 'Iscritto';
+        input.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>
